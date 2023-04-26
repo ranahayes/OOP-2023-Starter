@@ -50,6 +50,18 @@ public class DANI extends PApplet {
                 if (w.length() == 0) {
                     continue;
                 }
+				Word word = findWord(w);
+                if (word == null) {
+                    word = new Word(w);
+                    model.add(word);
+                }
+                if (i < words.length - 1) {
+                    String nextW = words[i + 1].replaceAll("[^\\w\\s]", "").toLowerCase();
+                    if (nextW.length() == 0) {
+                        continue;
+                    }
+                    word.addFollow(nextW);
+                }
             }
         }
     }
