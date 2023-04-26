@@ -23,19 +23,31 @@ public class DANI extends PApplet {
 
 
 	public void keyPressed() {
-
+		if (key == ' ') {
+			sonnet = writeSonnet();
+			for (int i = 0; i < sonnet.length; i++) {
+				System.out.println(sonnet[i]);
+			}
+			redraw();
+		}
 	}
 
-	float off = 0;
 
-	public void draw() 
-    {
+	public void draw() {
 		background(0);
 		fill(255);
 		noStroke();
 		textSize(20);
-        textAlign(CENTER, CENTER);
-        
+		textAlign(CENTER, CENTER);
+		if (sonnet != null) {
+			float x = width / 2;
+			float y = height / 2;
+			float lineHeight = textAscent() + textDescent();
+			for (int i = 0; i < sonnet.length; i++) {
+				text(sonnet[i], x, y);
+				y += lineHeight;
+			}
+		}
 	}
 	
     
