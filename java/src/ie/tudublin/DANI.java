@@ -1,3 +1,6 @@
+//Author: Rana Hayes
+//Date: 26/008/2023
+//Description: DANI (creates sonnets using txt file) for OOP-2023 lab test 
 package ie.tudublin;
 
 import java.util.ArrayList;
