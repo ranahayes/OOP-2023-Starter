@@ -25,8 +25,6 @@ public class DANI extends PApplet {
         loadFile("shakespere.txt");
     }
 
-       
-	}
 
 	public void keyPressed() {
 
@@ -54,6 +52,14 @@ public class DANI extends PApplet {
                 }
             }
         }
+    }
+	public Word findWord(String str) {
+        for (Word word : model) {
+            if (word.getWord().equals(str)) {
+                return word;
+            }
+        }
+        return null;
     }
 	class Follow {
 		private String word;
