@@ -66,4 +66,39 @@ public class DANI extends PApplet {
 			return word + "(" + count + ")";
 		}
 	}
+	class Word {
+		private String word;
+		private ArrayList<Follow> follows;
+	
+		public Word(String word) {
+			this.word = word;
+			this.follows = new ArrayList<Follow>();
+		}
+	
+		public String getWord() {
+			return this.word;
+		}
+	
+		public ArrayList<Follow> getFollows() {
+			return this.follows;
+		}
+	
+		public void addFollow(String word) {
+			for (Follow follow : follows) {
+				if (follow.getWord().equals(word)) {
+					follow.incrementCount();
+					return;
+				}
+			}
+			follows.add(new Follow(word));
+		}
+	
+		public String toString() {
+			String str = word + ": ";
+			for (Follow follow : follows) {
+				str += follow.toString() + " ";
+			}
+			return str;
+		}
+	}
 }
