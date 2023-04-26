@@ -41,6 +41,18 @@ public class DANI extends PApplet {
         textAlign(CENTER, CENTER);
         
 	}
+	public void loadFile(String filename) {
+        String[] lines = loadStrings(filename);
+        for (String line : lines) {
+            String[] words = split(line, ' ');
+            for (int i = 0; i < words.length; i++) {
+                String w = words[i].replaceAll("[^\\w\\s]", "").toLowerCase();
+                if (w.length() == 0) {
+                    continue;
+                }
+            }
+        }
+    }
 	class Follow {
 		private String word;
 		private int count;
