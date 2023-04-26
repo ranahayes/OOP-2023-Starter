@@ -9,8 +9,8 @@ public class DANI extends PApplet {
 	
 
 	public void settings() {
-		size(1000, 1000);
-		//fullScreen(SPAN);
+		//size(1000, 1000);
+		fullScreen(SPAN);
 	}
 
     String[] sonnet;
@@ -40,5 +40,30 @@ public class DANI extends PApplet {
 		textSize(20);
         textAlign(CENTER, CENTER);
         
+	}
+	class Follow {
+		private String word;
+		private int count;
+	
+		public Follow(String word) {
+			this.word = word;
+			this.count = 1;
+		}
+	
+		public String getWord() {
+			return this.word;
+		}
+	
+		public int getCount() {
+			return this.count;
+		}
+	
+		public void incrementCount() {
+			this.count++;
+		}
+	
+		public String toString() {
+			return word + "(" + count + ")";
+		}
 	}
 }
