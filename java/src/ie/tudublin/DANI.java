@@ -23,6 +23,7 @@ public class DANI extends PApplet {
 	public void setup() {
 		colorMode(HSB);
         loadFile("shakespere.txt");
+		printModel();
     }
 
 
@@ -41,6 +42,8 @@ public class DANI extends PApplet {
         textAlign(CENTER, CENTER);
         
 	}
+	
+    
 	public void loadFile(String filename) {
         String[] lines = loadStrings(filename);
         for (String line : lines) {
@@ -64,7 +67,19 @@ public class DANI extends PApplet {
                 }
             }
         }
+	
     }
+
+	public void printModel() {
+        for (Word word : model) {
+            System.out.print(word.getWord() + ": ");
+            for (Follow follow : word.getFollows()) {
+                System.out.print(follow.getWord() + "(" + follow.getCount() + ") ");
+            }
+            System.out.println();
+        }
+	}
+
 	public Word findWord(String str) {
         for (Word word : model) {
             if (word.getWord().equals(str)) {
@@ -73,6 +88,9 @@ public class DANI extends PApplet {
         }
         return null;
     }
+
+	
+
 	class Follow {
 		private String word;
 		private int count;
