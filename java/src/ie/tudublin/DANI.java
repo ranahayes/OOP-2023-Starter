@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import processing.core.PApplet;
 
 public class DANI extends PApplet {
+	ArrayList<Word> model = new ArrayList<Word>();
+    String[] sonnet;
 
 	
 
@@ -13,8 +15,6 @@ public class DANI extends PApplet {
 		fullScreen(SPAN);
 	}
 
-    String[] sonnet;
-
     public String[] writeSonnet()
     {
         return null;
@@ -22,6 +22,8 @@ public class DANI extends PApplet {
 
 	public void setup() {
 		colorMode(HSB);
+        loadFile("shakespere.txt");
+    }
 
        
 	}
