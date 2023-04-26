@@ -15,11 +15,6 @@ public class DANI extends PApplet {
 		fullScreen(SPAN);
 	}
 
-    public String[] writeSonnet()
-    {
-        return null;
-    }
-
 	public void setup() {
 		colorMode(HSB);
         loadFile("shakespere.txt");
@@ -87,6 +82,25 @@ public class DANI extends PApplet {
             }
         }
         return null;
+    }
+	public String[] writeSonnet() {
+        String[] sonnet = new String[14];
+        for (int i = 0; i < sonnet.length; i++) {
+            String line = "";
+            Word currentWord = model.get((int) random(model.size()));
+            line += currentWord.getWord();
+            for (int j = 0; j < 7; j++) {
+                ArrayList<Follow> follows = currentWord.getFollows();
+                if (follows.size() == 0) {
+                    break;
+                }
+                Follow follow = follows.get((int) random(follows.size()));
+                line += " " + follow.getWord();
+                currentWord = findWord(follow.getWord());
+            }
+            sonnet[i] = line;
+        }
+        return sonnet;
     }
 
 	
